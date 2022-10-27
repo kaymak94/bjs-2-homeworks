@@ -1,7 +1,6 @@
 "use strict";
 class PrintEditionItem {
-    constructor(author, name, releaseDate, pagesCount) {
-        this.author = author;
+    constructor(name, releaseDate, pagesCount) {
         this.name = name;
         this.releaseDate = releaseDate;
         this.pagesCount = pagesCount;
@@ -41,19 +40,19 @@ class Book extends PrintEditionItem {
         this.type = "book";
     }
 }
-class DetectiveBook extends PrintEditionItem {
+class DetectiveBook extends Book {
     constructor(author, name, releaseDate, pagesCount) {
         super(author, name, releaseDate, pagesCount);
         this.type = "detective";
     }
 }
-class NovelBook extends PrintEditionItem {
+class NovelBook extends Book {
     constructor(author, name, releaseDate, pagesCount) {
         super(author, name, releaseDate, pagesCount);
         this.type = "novel";
     }
 }
-class FantasticBook extends PrintEditionItem {
+class FantasticBook extends Book {
     constructor(author, name, releaseDate, pagesCount) {
         super(author, name, releaseDate, pagesCount);
         this.type = "fantastic";
@@ -63,7 +62,7 @@ class FantasticBook extends PrintEditionItem {
 class Library {
     constructor(name) {
         this.name = name;
-        this.book = [];
+        this.books = [];
     }
 
     addBook(book) {
@@ -110,7 +109,7 @@ class Library {
     }
 
     giveBookByName(bookName) {
-        const findBookArr = this.book.findArr((book) => book.name === bookName);
+        const findBookArr = this.book.findIndex((book) => book.name === bookName);
         if (findBookArr === -1) {
             return null;
 
