@@ -67,7 +67,7 @@ class Library {
 
     addBook(book) {
         if (book.state > 30) {
-            this.book.push(book);
+            this.books.push(book);
         }
     }
     findBookBy(type, value) {
@@ -109,7 +109,7 @@ class Library {
     }
 
     giveBookByName(bookName) {
-        const findBookArr = this.book.findIndex((book) => book.name === bookName);
+        const findBookArr = this.books.findIndex((book) => book.name === bookName);
         if (findBookArr === -1) {
             return null;
 
